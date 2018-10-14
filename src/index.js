@@ -14,6 +14,15 @@ const store = createStore(reducer);
 
 console.log(store.getState());
 
+const action = {
+  type: 'UPDATE_TEXT',
+    payload: {
+      newState: 'New state'
+    }
+};
+
+store.dispatch(action);
+
 ReactDOM.render(<App />, document.getElementById('root'));
 
 serviceWorker.unregister();
