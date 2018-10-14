@@ -1,6 +1,6 @@
-export const action = {
-    type: 'UPDATE_TEXT',
+export const action = (text) => ({
+  type: 'UPDATE_TEXT',
     payload: {
-        newText: 'New state'
-    }
-};
+      newText: text
+  }
+});

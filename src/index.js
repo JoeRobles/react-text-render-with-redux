@@ -8,7 +8,6 @@ import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import { reducer } from './reducers/text.reducer';
-import { action } from './actions/text.action';
 
 const allReducers = combineReducers({
   text: reducer
@@ -21,13 +20,6 @@ const store = createStore(
   },
   window.devToolsExtension && window.devToolsExtension()
 );
-
-console.log(store.getState());
-
-
-store.dispatch(action);
-
-console.log(store.getState());
 
 ReactDOM.render(
   <Provider store={store}>
