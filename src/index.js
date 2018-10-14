@@ -19,15 +19,21 @@ const allReducers = combineReducers({
   text:reducer
 });
 
-const store = createStore(allReducers);
+const store = createStore(
+  allReducers,
+  {
+    text: ''
+  },
+  window.devToolsExtension && window.devToolsExtension()
+);
 
 console.log(store.getState());
 
 const action = {
   type: 'UPDATE_TEXT',
-    payload: {
-      newText: 'New state'
-    }
+  payload: {
+    newText: 'New state'
+  }
 };
 
 store.dispatch(action);
