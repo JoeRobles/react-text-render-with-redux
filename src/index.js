@@ -7,17 +7,11 @@ import * as serviceWorker from './serviceWorker';
 import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-const reducer = (state = '', action) => {
-  switch (action.type) {
-    case 'UPDATE_TEXT':
-      return action.payload.newText;
-    default:
-      return state;
-  }
-};
+import { reducer } from './reducers/text.reducer';
+import { action } from './actions/text.action';
 
 const allReducers = combineReducers({
-  text:reducer
+  text: reducer
 });
 
 const store = createStore(
@@ -30,12 +24,6 @@ const store = createStore(
 
 console.log(store.getState());
 
-const action = {
-  type: 'UPDATE_TEXT',
-  payload: {
-    newText: 'New state'
-  }
-};
 
 store.dispatch(action);
 
