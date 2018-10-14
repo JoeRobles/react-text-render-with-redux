@@ -4,26 +4,29 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { createStore } from 'redux';
+import { combineReducers, createStore } from 'redux';
 
-const reducer = (state, action) => {
-    switch (action.type) {
-      case 'UPDATE_TEXT':
-        return action.payload.newState;
-      default:
-        return 'State';
-    }
-  console.log(action);
+const reducer = (state = '', action) => {
+  switch (action.type) {
+    case 'UPDATE_TEXT':
+      return action.payload.newText;
+    default:
+      return state;
+  }
 };
 
-const store = createStore(reducer);
+const allReducers = combineReducers({
+  text:reducer
+});
+
+const store = createStore(allReducers);
 
 console.log(store.getState());
 
 const action = {
   type: 'UPDATE_TEXT',
     payload: {
-      newState: 'New state'
+      newText: 'New state'
     }
 };
 
