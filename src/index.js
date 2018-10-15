@@ -12,12 +12,13 @@ import { reducer } from './reducers/text.reducer';
 const allReducers = combineReducers({
   text: reducer
 });
+const state = {
+  text: ''
+};
 
 const store = createStore(
   allReducers,
-  {
-    text: ''
-  },
+  state,
   window.devToolsExtension && window.devToolsExtension()
 );
 
